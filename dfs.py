@@ -1,5 +1,5 @@
 def dfs(graph, start):
-        visited = []
+    visited = []
     stack = [start]
 
     while stack:

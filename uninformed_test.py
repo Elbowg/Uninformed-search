@@ -1,14 +1,18 @@
 import networkx as nx
 import matplotlib.pyplot as plt
+from bfs import bfs
+from dfs import dfs
+from id_dfs import iddfs
 
 # Your graph
 graph = {
-#add your (code) graph here as a dictionary
-
-
-
-
-
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['G'],
+    'F': [],
+    'G': []
 }
 
 # Create directed graph
@@ -19,7 +23,7 @@ for node, neighbors in graph.items():
     for neighbor in neighbors:
         G.add_edge(node, neighbor)
 
-# Draw
+# Draw using tree layout
 plt.figure(figsize=(6, 5))
 pos = nx.spring_layout(G)  # auto layout
 
@@ -36,6 +40,6 @@ nx.draw(
 plt.title("Graph Representation")
 plt.show()
 
-print("BFS:",) #add function calls with their respective arguments
-print("DFS:",) #add function calls with their respective arguments
-print("IDDFS:",) #add function calls with their respective arguments
+print("BFS:", bfs(graph, 'A'))
+print("DFS:", dfs(graph, 'A'))
+print("IDDFS:", iddfs(graph, 'A', 3))
